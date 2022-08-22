@@ -1,3 +1,5 @@
+import { expect } from "@storybook/jest";
+import { screen } from "@storybook/testing-library";
 import { ComponentStoryObj, ComponentMeta } from "@storybook/react";
 
 import { Tile } from "./Tile";
@@ -8,6 +10,9 @@ export default {
 } as ComponentMeta<typeof Tile>;
 
 export const BasicTile: ComponentStoryObj<typeof Tile> = {
+    play: async () => {
+        await expect(screen.getByRole("heading")).toBeInTheDocument();
+    },
     args: {
         header: "Lorem ipsum dolor sit amet",
         children: `Lorem ipsum dolor sit amet, consectetur adipiscing elit,
@@ -38,5 +43,14 @@ export const BasicTile: ComponentStoryObj<typeof Tile> = {
     reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
     pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
     culpa qui officia deserunt mollit anim id est laborum.`,
+    },
+};
+
+export const BasicTileWithSmallAmountOfContent: ComponentStoryObj<typeof Tile> =
+{
+    ...BasicTile,
+    args: {
+        header: "Lorem ipsum dolor sit amet",
+        children: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
     },
 };

@@ -9,6 +9,7 @@
     "lint": "next lint",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
+    "chromatic": "npx chromatic --project-token=266d214526d3",
     "test": "jest"
   },
   "dependencies": {
@@ -33,6 +34,7 @@
     "@storybook/testing-library": "^0.0.13",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
+    "@testing-library/react-hooks": "^8.0.1",
     "@testing-library/user-event": "^14.4.3",
     "@types/node": "18.7.6",
     "@types/react": "18.0.17",
